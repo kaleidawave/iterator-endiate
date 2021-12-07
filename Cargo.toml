@@ -1,0 +1,12 @@
+[package]
+name = "iterator-endiate"
+version = "0.1.0"
+edition = "2018"
+description = "Extension method for (exact size) iterators which yields tuple containing whether item is last in iterator"
+authors = ["Ben <kaleidawave@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/kaleidawave/iterator-endiate"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
