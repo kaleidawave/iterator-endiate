@@ -65,3 +65,7 @@ impl<Iter: ExactSizeIterator> Iterator for NEndiate<Iter> {
         self.0.next().map(|(at_end, v)| (!at_end, v))
     }
 }
+
+impl<Iter: ExactSizeIterator> ExactSizeIterator for Endiate<Iter> {}
+
+impl<Iter: ExactSizeIterator> ExactSizeIterator for NEndiate<Iter> {}

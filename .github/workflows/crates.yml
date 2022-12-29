@@ -25,13 +25,14 @@ jobs:
           crates-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
       - name: Push updated Cargo.toml
         run: |
-          git tag "v${{ steps.release.outputs.new-version }}"
+          firstUpdateVersion=$(echo '${{ steps.release.outputs.new-versions }}' | jq -r '.[0]')
+          git tag "v$firstUpdateVersion"
           git add .
-          git commit -m "Release: ${{ steps.release.outputs.new-version }}"
+          git commit -m "Release: ${{ steps.release.outputs.new-versions-description }}"
           git push --tags origin main
       - name: Discord
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: info
-          text: "Released version ${{ steps.release.outputs.new-version }}"
+          text: "Released version ${{ steps.release.outputs.new-versions-description }}"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_ENDPOINT }}
