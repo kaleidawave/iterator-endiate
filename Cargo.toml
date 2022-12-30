@@ -1,6 +1,6 @@
 [package]
 name = "iterator-endiate"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Extension method for (exact size) iterators which yields tuple containing whether item is last in iterator"
 authors = ["Ben <kaleidawave@gmail.com>"]
